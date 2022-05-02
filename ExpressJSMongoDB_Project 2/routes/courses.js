@@ -3,6 +3,6 @@ const router = express.Router();
 const coursesCtrl = require('../controllers/courses');
 
 router.post('/students/:id/course', coursesCtrl.create);
-//router.delete('/reviews/:id',reviewsCtrl.delete);
+router.delete('/courses/:id',coursesCtrl.delete);
 
 module.exports = router;

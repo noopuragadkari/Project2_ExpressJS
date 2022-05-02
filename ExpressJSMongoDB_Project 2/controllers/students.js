@@ -28,9 +28,30 @@ function create(req, res){
       res.redirect(`/students/${student._id}`);
   });
 }
+function edit(req, res) {
+  Student.findOne({_id: req.params.id, userRecommending: req.user._id}, function(err, student) {
+    if (err || !student) return res.redirect('/students');
+    res.render('students/edit', {student});
+  });
+}
+function update(req, res) {
+  Student.findOneAndUpdate(
+    {_id: req.params.id, userRecommending: req.user._id},
+    // update object with updated properties
+    req.body,
+    // options object with new: true to make sure updated doc is returned
+    {new: true},
+    function(err, student) {
+      if (err || !student) return res.redirect('/students');
+      res.redirect(`/students/${student._id}`);
+    }
+  );
+}
 module.exports = {
   new: newStudent,
   create,
   index,
-  show
+  show,
+  edit,
+  update
 };

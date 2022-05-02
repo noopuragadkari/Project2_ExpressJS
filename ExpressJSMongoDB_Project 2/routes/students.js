@@ -7,5 +7,7 @@ router.get('/', studentsCtrl.index);
 router.get('/new', isLoggedIn, studentsCtrl.new);
 router.get('/:id', studentsCtrl.show);
 router.post('/', isLoggedIn, studentsCtrl.create);
+router.get('/edit/:id', isLoggedIn, studentsCtrl.edit);
+router.put('/:id', isLoggedIn, studentsCtrl.update);
 
 module.exports = router;

@@ -56,6 +56,7 @@
                 <th scope="col">Course Name</th>
                 <th scope="col">Course ID</th>
                 <th scope="col">Course Description</th>
+                <th scope="col">Action</th>
             </thead>
             <tbody>
                 <% student.courses.forEach(function(r) { %>
@@ -63,6 +64,13 @@
                         <td><%= r.coursename %></td>
                         <td><%= r.courseid %></td>
                         <td><%= r.coursedescription %></td>
+                        <td>
+                       
+                              <form action="/courses/<%= r._id %>?_method=DELETE" method="POST">
+                                <button class="btn btn-outline-danger btn-sm" type="submit">DELETE</button>
+                              </form>
+                         
+                          </td>
                     </tr>
                 <% }); %>
             </tbody>
