@@ -17,6 +17,8 @@ function show(req, res) {
 function create(req, res){
   // we create the student object
   const  student = new Student(req.body);
+  // Assign the logged in user's id
+  student.userRecommending = req.user._id;
   // we save the student object to the db
   student.save(function (error){
       if(error) return res.render('students/new');
@@ -49,7 +51,7 @@ function update(req, res) {
 function deleteStudent(req, res) {
   Student.findOneAndDelete(
     // Ensue that the book was created by the logged in user
-    req.params.id, function(err) {
+    {_id: req.params.id, userRecommending: req.user._id}, function(err) {
       // Deleted book, so must redirect to index
       res.redirect('/students');
     }
