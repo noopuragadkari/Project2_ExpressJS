@@ -2,7 +2,30 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
+.indexbody{
+  position: relative;
+  background: url('bgimg.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.indexbody .text{
+  position: absolute;
+  z-index: 999;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+    top: 285px; /* Adjust this value to move the positioned div up and down */
+  text-align: center;
+  color: antiquewhite;
+  width: 60%; /* Set the width of the positioned div */
+}
+.indexbody h1{
+  font-weight: bolder;
+}
+.h1Index{
+  text-align: center;
+  margin-top: 40px;
+}
 a {
   color: #00B7FF;
 }
