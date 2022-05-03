@@ -9,5 +9,7 @@ router.get('/:id', studentsCtrl.show);
 router.post('/', isLoggedIn, studentsCtrl.create);
 router.get('/edit/:id', isLoggedIn, studentsCtrl.edit);
 router.put('/:id', isLoggedIn, studentsCtrl.update);
+router.get('/delete/:id',studentsCtrl.delete);
+
 
 module.exports = router;

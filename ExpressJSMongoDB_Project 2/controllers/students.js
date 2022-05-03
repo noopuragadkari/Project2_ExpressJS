@@ -3,11 +3,10 @@ const Student = require('../models/student');
 function newStudent(req, res) {
   res.render('students/new', { title: 'Add Student' });
 }
-function index(req, res){
-  Student.find({}, function (err, students){
-      res.render('students/index',{
-        students
-      })
+
+function index(req, res) {
+  Student.find({}, function(err, students) {
+    res.render('students/index', { title: 'All Students', students });
   });
 }
 function show(req, res) {
@@ -47,11 +46,23 @@ function update(req, res) {
     }
   );
 }
+function deleteStudent(req, res) {
+  Student.findOneAndDelete(
+    // Ensue that the book was created by the logged in user
+    req.params.id, function(err) {
+      // Deleted book, so must redirect to index
+      res.redirect('/students');
+    }
+  );
+}
+
+
 module.exports = {
   new: newStudent,
   create,
   index,
   show,
   edit,
-  update
+  update,
+  delete: deleteStudent 
 };

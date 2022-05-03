@@ -8,6 +8,9 @@ module.exports = {
 function create(req, res) {
   // Find the student to embed the course within
   Student.findById(req.params.id, function(err, student) {
+    req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
     // Push the subdoc for the course
     student.courses.push(req.body);
     student.save(function(err) {

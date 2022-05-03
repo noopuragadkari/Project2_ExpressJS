@@ -8,13 +8,22 @@
   </head>
   <body>
     <h1 class="text-center text-danger"><%= title %></h1>
-    <div class="row justify-content-center ">
+    <!-- <div class="row justify-content-center ">
       <div class="col-4 p-3 mb-2 bg-secondary">
         <a href="/students" class="col-4 text-white">ALL STUDENTS</a>
       </div>
       <div class="col-4 p-3 mb-2 bg-secondary text-white">
         <a href="/students/new" class="col-4 text-white">ADD NEW STUDENT</a>
       </div>
-    </div>
+    </div> -->
+    <nav>
+      <a href="/students" <%- title === 'All Students' ? 'class="active"' : '' %>>ALL STUDENTS</a>
+      <% if (user) { %>
+        <a href="/students/new" <%- title === 'Add Student' ? 'class="active"' : '' %>>ADD NEW STUDENT</a>
+        <a href="/logout">LOG OUT</a>
+      <% } else { %>
+        <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+      <% } %>
+    </nav>
   </body>
 </html>

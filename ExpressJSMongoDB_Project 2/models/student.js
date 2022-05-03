@@ -5,7 +5,10 @@ const Schema = mongoose.Schema;
 const courseSchema = new Schema({
   coursename: String,
   courseid: Number,
-  coursedescription:String
+  coursedescription:String,
+  user: {type: Schema.Types.ObjectId, ref: 'User'},
+  userName: String,
+  userAvatar: String
 }, {
   timestamps: true
 });
