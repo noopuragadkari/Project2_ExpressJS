@@ -35,7 +35,9 @@
             <th scope="col">Phone number</th>
             <th scope="col">Email ID</th>
             <th scope="col">Student Details</th>
-            <th scope="col">Action</th>
+            <% if (user) { %>
+                <th scope="col">Action</th>
+            <% } %>
         </thead>
         <tbody>
         <% students.forEach(student => { %>
@@ -45,10 +47,12 @@
                 <td><%= student.phone %></td>
                 <td><%= student.emailid %></td>
                 <td><a href="/students/<%= student._id %>">DETAILS</a></td>
-                <td>
-                    <a href="/students/edit/<%= student._id %>" class="btn btn-outline-primary btn-sm" role="button">UPDATE</a>
-                    <a href="/students/delete/<%= student._id %>" class="btn btn-outline-danger btn-sm" role="button">DELETE</a>        
-                </td>
+                <% if (user) { %>
+                    <td>
+                        <a href="/students/edit/<%= student._id %>" class="btn btn-outline-primary btn-sm" role="button">UPDATE</a>
+                        <a href="/students/delete/<%= student._id %>" class="btn btn-outline-danger btn-sm" role="button">DELETE</a>        
+                    </td>
+                <% } %>
             </tr>
         <% }) %>
         </tbody>
