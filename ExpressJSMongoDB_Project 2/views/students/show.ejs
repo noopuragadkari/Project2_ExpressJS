@@ -46,34 +46,38 @@
             <dd class="col-sm-9"><%= student.emailid %></dd>
         </div>
     </section>
-    <section class="marginTop">
-        <h5>COURSE::</h5>
-        <form method="POST"
-  action="/students/<%= student._id %>/course">
-            <div class="col-6 form-group">
-                <label class="form-label">Add Course Name:</label>
-                <input type="text" class="form-control" name="coursename"  placeholder="Enter Course Name">
-            </div>
-            <div class="col-6 form-group marginTop">
-                <label class="form-label">Add Course ID:</label>
-                <input type="text" class="form-control" name="courseid"  placeholder="Enter Course ID">
-            </div>
-            <div class="col-6 form-group marginTop">
-                <label class="form-label">Add Course Description:</label>
-                <input type="text" class="form-control" name="coursedescription"  placeholder="Enter Course Description">
-            </div>
-            <div class="col-6 marginTop">
-                <button type="submit" class="btn btn-primary">ADD COURSE</button>
-            </div>
-        </form>
-    </section>
+    <% if (user) { %>
+        <section class="marginTop">
+            <h5>COURSE::</h5>
+            <form method="POST"
+    action="/students/<%= student._id %>/course">
+                <div class="col-6 form-group">
+                    <label class="form-label">Add Course Name:</label>
+                    <input type="text" class="form-control" name="coursename"  placeholder="Enter Course Name">
+                </div>
+                <div class="col-6 form-group marginTop">
+                    <label class="form-label">Add Course ID:</label>
+                    <input type="text" class="form-control" name="courseid"  placeholder="Enter Course ID">
+                </div>
+                <div class="col-6 form-group marginTop">
+                    <label class="form-label">Add Course Description:</label>
+                    <input type="text" class="form-control" name="coursedescription"  placeholder="Enter Course Description">
+                </div>
+                <div class="col-6 marginTop">
+                    <button type="submit" class="btn btn-primary">ADD COURSE</button>
+                </div>
+            </form>
+        </section>
+        <% } %>
     <section class="marginTop">
         <table class="table table-striped">
             <thead class="thead-dark">
                 <th scope="col">Course Name</th>
                 <th scope="col">Course ID</th>
                 <th scope="col">Course Description</th>
-                <th scope="col">Action</th>
+                <% if (user) { %>
+                    <th scope="col">Action</th>
+                <% } %>
             </thead>
             <tbody>
                 <% student.courses.forEach(function(r) { %>
@@ -81,13 +85,13 @@
                         <td><%= r.coursename %></td>
                         <td><%= r.courseid %></td>
                         <td><%= r.coursedescription %></td>
+                        <% if (user) { %>
                         <td>
-                       
-                              <form action="/courses/<%= r._id %>?_method=DELETE" method="POST">
-                                <button class="btn btn-outline-danger btn-sm" type="submit">DELETE</button>
-                              </form>
-                         
+                            <form action="/courses/<%= r._id %>?_method=DELETE" method="POST">
+                               <button class="btn btn-outline-danger btn-sm" type="submit">DELETE</button>
+                            </form>
                           </td>
+                          <% } %>
                     </tr>
                 <% }); %>
             </tbody>
