@@ -10,7 +10,24 @@
     <title>Student Details</title>
 </head>
 <body>
-<h2>Enter Student Details</h2>
+<nav class="navbar navbar-light navbar-expand-lg fixed-top shadow-sm bg-white"><a class="navbar-brand"></a>
+    <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+    <div id="navbarSupportedContent" class="collapse navbar-collapse">
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a href="/students" class="nav-link">ALL STUDENTS</a></li>
+        <% if (user) { %>
+        <li class="nav-item"><a href="/students/new" class="nav-link">ADD NEW STUDENT</a></li>
+        <div class="navbar-text ml-lg-3"></div>
+          <li class="nav-item"><a href="/logout" class="login btn btn-primary text-white shadow">LOG OUT</a></li>
+        <% } else { %>
+    </ul>
+        <div class="navbar-text ml-lg-3">
+        <a href="/auth/google" class="login btn btn-primary text-white shadow">LOG IN</a>
+        </div>
+        <% } %>
+    </div>
+</nav>
+<h2 class="h1Index">Enter Student Details</h2>
 <form action="/students" method="POST">
   <div class="row marginTop">
     <div class="col-6">
