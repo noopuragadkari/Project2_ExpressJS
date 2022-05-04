@@ -15,7 +15,6 @@ require('./config/passport');
 var indexRouter = require('./routes/index');
 var studentsRouter = require('./routes/students');
 var coursesRouter = require('./routes/courses');
-//var performersRouter = require('./routes/performers');
 
 var app = express();
 
@@ -46,7 +45,6 @@ app.use(function (req, res, next) {
 app.use('/', indexRouter);
 app.use('/students', studentsRouter);
 app.use('/', coursesRouter);
-//app.use('/', performersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
