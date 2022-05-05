@@ -1,0 +1,2 @@
+App Title: STUDENT DATABASE MANAGEMENT SYSTEM
+Student Database Management System is an app developed to keep track of student records where you can Create new student, view student details,update student, delete student. You can add courses for ech student as well as delete them.
