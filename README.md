@@ -29,4 +29,4 @@ https://trello.com/b/xTOD4XaA/project2
 
 Next Steps: 
 1. Make app mobile friendly
-2. Add more functionality to the app
+2. Add more functionality to the app like grading the student, marking the attendance of the student.
