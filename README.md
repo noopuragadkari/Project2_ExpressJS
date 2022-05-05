@@ -4,18 +4,19 @@ Student Database Management System is an app developed to keep track of student 
 
 Screenshot(s):
 
-1.Technologies Used: 
-2.Html, CSS, JS
-3.Bootstrap
-4.Express
-5.MongoDB
-6.Google OAuth
-7.Heroku Deployment
+Technologies Used: 
+
+1. Html, CSS, JS
+2. Bootstrap
+3. Express
+4. MongoDB
+5. Google OAuth
+6. Heroku Deployment
 
 Getting Started: 
 
 
-Link to the app:
+Link to the app: 
 https://noopurastudentdatabase.herokuapp.com/
 
 Trello board link:
