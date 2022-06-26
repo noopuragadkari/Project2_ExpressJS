@@ -4,17 +4,16 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
-var passport = require('passport');
+
 var methodOverride = require('method-override');
 
 require('dotenv').config();
 
 require('./config/database');
-require('./config/passport');
+
 
 var indexRouter = require('./routes/index');
-var studentsRouter = require('./routes/students');
-var coursesRouter = require('./routes/courses');
+var customersRouter = require('./routes/customers');
 
 var app = express();
 
@@ -34,8 +33,6 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
-app.use(passport.initialize());
-app.use(passport.session());
 
 app.use(function (req, res, next) {
   res.locals.user = req.user;
@@ -43,8 +40,7 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', indexRouter);
-app.use('/students', studentsRouter);
-app.use('/', coursesRouter);
+app.use('/customers', customersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
